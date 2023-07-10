@@ -5,7 +5,10 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
+    ],
+	"database": {
+	  "rules": "firestore.rules"
+	}
   },
   "emulators": {
     "hosting": {
