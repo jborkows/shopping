@@ -16,6 +16,7 @@ jobs:
           node-version: 18
       - run: npm i -g pnpm
       - run: pnpm install --frozen-lockfile 
+      - run: npm i -g firebase-tools 
       - name: rules tests
         run: | 
          firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
