@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 18
       - run: npm i -g pnpm
-      - run: pnpm ci
+      - run: pnpm install --frozen-lockfile 
       - run: pnpm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
