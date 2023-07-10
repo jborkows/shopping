@@ -16,10 +16,9 @@ jobs:
           node-version: 18
       - run: npm i -g pnpm
       - run: pnpm install --frozen-lockfile 
+      - name: rules tests
+        run: | 
+         firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
       - run: pnpm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHOPPING_25E89 }}'
-          channelId: live
-          projectId: shopping-25e89
+      - run: firebase deploy --only hosting,firestore:rules --token ${{secrets.FIREBASE_TOKEN}}
+
