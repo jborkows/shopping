@@ -19,7 +19,9 @@ jobs:
       - run: npm i -g firebase-tools 
       - name: rules tests
         run: | 
-         firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
+         # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
+
+         firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
       - run: pnpm run build
       - run: firebase deploy --only hosting,firestore:rules --token ${{secrets.FIREBASE_TOKEN}}
 

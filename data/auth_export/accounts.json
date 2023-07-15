@@ -1,0 +1,77 @@
+{
+  "kind": "identitytoolkit#DownloadAccountResponse",
+  "users": [
+    {
+      "localId": "test2",
+      "createdAt": "1689374749297",
+      "lastLoginAt": "1689374749297",
+      "displayName": "Test2 Test2",
+      "photoUrl": "",
+      "passwordHash": "fakeHash:salt=fakeSaltlXkXvYMLOspfvxlkM0BL:password=123456",
+      "salt": "fakeSaltlXkXvYMLOspfvxlkM0BL",
+      "passwordUpdatedAt": 1689376426553,
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "aaa.aaa@aa.aa",
+          "federatedId": "aaa.aaa@aa.aa",
+          "rawId": "aaa.aaa@aa.aa",
+          "displayName": "Test2 Test2",
+          "photoUrl": ""
+        }
+      ],
+      "validSince": "1689376426",
+      "email": "aaa.aaa@aa.aa",
+      "emailVerified": true,
+      "disabled": false
+    },
+    {
+      "localId": "test",
+      "createdAt": "1689374718281",
+      "lastLoginAt": "1689374718281",
+      "displayName": "Test Test",
+      "photoUrl": "",
+      "passwordHash": "fakeHash:salt=fakeSaltFV7flBGITlyZ3iPEjjf8:password=123456",
+      "salt": "fakeSaltFV7flBGITlyZ3iPEjjf8",
+      "passwordUpdatedAt": 1689376426553,
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "xxx.xxx@xx.xx",
+          "federatedId": "xxx.xxx@xx.xx",
+          "rawId": "xxx.xxx@xx.xx",
+          "displayName": "Test Test",
+          "photoUrl": ""
+        }
+      ],
+      "validSince": "1689376426",
+      "email": "xxx.xxx@xx.xx",
+      "emailVerified": true,
+      "disabled": false
+    },
+    {
+      "localId": "nasty",
+      "createdAt": "1689374821284",
+      "lastLoginAt": "1689374821284",
+      "displayName": "Not allowed",
+      "photoUrl": "",
+      "passwordHash": "fakeHash:salt=fakeSaltvhhIig3isu8fDt4FA4gU:password=123456",
+      "salt": "fakeSaltvhhIig3isu8fDt4FA4gU",
+      "passwordUpdatedAt": 1689376426553,
+      "providerUserInfo": [
+        {
+          "providerId": "password",
+          "email": "das.das@ds.ds",
+          "federatedId": "das.das@ds.ds",
+          "rawId": "das.das@ds.ds",
+          "displayName": "Not allowed",
+          "photoUrl": ""
+        }
+      ],
+      "validSince": "1689376426",
+      "email": "das.das@ds.ds",
+      "emailVerified": false,
+      "disabled": false
+    }
+  ]
+}
