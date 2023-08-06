@@ -25,6 +25,9 @@ jobs:
          # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
          firebase experiments:enable webframeworks
          firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
+      - name: ls
+        run: |
+          ls -lR
       - uses: actions/upload-artifact@v3
         if: always()
         with:
