@@ -6,6 +6,7 @@ on:
 env:
   REPO: jborkows/shopping
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  GH_TOKEN: ${{ secrets.GH_TOKEN }}
 jobs:
   CleanThemAll:
     name: "Clean old logs"
