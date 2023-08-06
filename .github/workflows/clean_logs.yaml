@@ -1,0 +1,22 @@
+name: Cleans 🗑 old logs from workflow
+on:
+  schedule:
+    - cron: '30 23 * * 1'
+  workflow_dispatch:
+env:
+  REPO: jborkows/shopping
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+jobs:
+  CleanThemAll:
+    name: "Clean old logs"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Do work 🌪
+        run:  |
+          comparison_date=$(date +%Y-%m-%d -d "5 day ago")
+          echo Removing older than $comparison_date
+          gh api repos/$REPO/actions/runs  --paginate | \
+          jq -r ".workflow_runs[] | select((.created_at <= \"$comparison_date\")) | .id" | \
+          xargs -I {} gh api repos/$REPO/actions/runs/{} --method DELETE -H "Accept: application/vnd.github+json"
+      
