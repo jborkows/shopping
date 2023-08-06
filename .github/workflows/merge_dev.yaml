@@ -25,6 +25,10 @@ jobs:
          # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
          firebase experiments:enable webframeworks
          firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+      - name: Run Playwright tests
+        run: firebase --project=fakeproject --only firestore,auth,hosting emulators:exec 'npx playwright test'
       - name: ls
         run: |
           ls -lR
