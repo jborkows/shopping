@@ -20,7 +20,13 @@ jobs:
       - name: rules tests
         run: | 
          # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
-
+         firebase experiments:enable webframeworks
          firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 5 
       - run: pnpm run build
 
