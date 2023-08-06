@@ -1,0 +1,26 @@
+
+# https://github.com/firebase/firebase-tools
+
+name: Merge dev
+'on':
+  push:
+    branches:
+      - master
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: npm i -g pnpm
+      - run: pnpm install --frozen-lockfile 
+      - run: npm i -g firebase-tools 
+      - name: rules tests
+        run: | 
+         # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
+
+         firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
+      - run: pnpm run build
+

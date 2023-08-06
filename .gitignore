@@ -89,3 +89,6 @@ pnpm-debug.log*
 ./properties.js
 
 *-coverage.html
+/test-results/
+/playwright-report/
+/playwright/.cache/

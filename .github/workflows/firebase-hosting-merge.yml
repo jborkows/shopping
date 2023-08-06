@@ -5,23 +5,16 @@ name: Deploy to Firebase Hosting on merge
 'on':
   push:
     branches:
-      - master
+      - prod
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - run: npm i -g pnpm
-      - run: pnpm install --frozen-lockfile 
-      - run: npm i -g firebase-tools 
-      - name: rules tests
-        run: | 
-         # firebase emulators:exec --only firestore  "pnpm run test" --token ${{secrets.FIREBASE_TOKEN}}
-
-         firebase --project=fakeproject --only firestore emulators:exec 'pnpm run test'
       - run: pnpm run build
-      - run: firebase deploy --only hosting,firestore:rules --token ${{secrets.FIREBASE_TOKEN}}
-
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHOPPING_25E89 }}'
+          channelId: live
+          projectId: shopping-25e89
