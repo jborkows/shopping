@@ -23,3 +23,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SHOPPING_25E89 }}'
           channelId: live
           projectId: shopping-25e89
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
