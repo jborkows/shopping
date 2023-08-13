@@ -63,6 +63,7 @@ node_modules/
 
 # dotenv environment variables file
 .env
+envencoded.txt
 
 # build output
 dist/
