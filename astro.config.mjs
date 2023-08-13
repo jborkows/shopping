@@ -1,7 +1,19 @@
 import { defineConfig } from 'astro/config';
 import solidJs from "@astrojs/solid-js";
+// import node from '@astrojs/node';
+
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [solidJs()]
+  integrations: [solidJs()],
+  redirects: {
+    '/': {
+      status: 302,
+      destination: '/dashboard'
+    }
+  },
+  // output: 'server',
+  // adapter: node({
+  //   mode: "standalone"
+  // })
 });
